@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         mFrame = (FrameLayout)findViewById(R.id.activity_main);
         mCountDown = (ImageView) findViewById(R.id.countdown);
-        mFirework = (ImageView) findViewById(R.id.fire);
-        mRocket = (ImageView) findViewById(R.id.rocket);
     }
 
 

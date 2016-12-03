@@ -50,8 +50,7 @@ public class ExToday extends AppCompatActivity implements OnItemClickListener,
 
         adapter = new SimpleCursorAdapter(this,
                 android.R.layout.simple_list_item_2, cursor, new String[] {
-                "title", "time" }, new int[] { android.R.id.text1,
-                android.R.id.text2 });
+                "title", "time" }, new int[] { android.R.id.text1, android.R.id.text2 });
 
         ListView list = (ListView) findViewById(R.id.list1);
         list.setAdapter(adapter);
