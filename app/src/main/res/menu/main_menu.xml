@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/quick_action1"
-        android:title="Quick1"
-        android:icon="@drawable/ic_android_black_24dp"
-        app:showAsAction="ifRoom"/>
+        android:id="@+id/action1"
+        android:title="일정 추가"/>
     <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:icon="@drawable/ic_settings_black_24dp"
-        app:showAsAction="ifRoom"/>
+        android:id="@+id/action2"
+        android:title="주별보기"/>
     <item
-        android:id="@+id/action_subactivity"
-        android:title="Sub Activity"/>
-    <item
-        android:id="@+id/action_navdrawer"
-        android:title="Navigation Drawer"/>
+        android:id="@+id/action3"
+        android:title="일별보기"/>
 
 </menu>

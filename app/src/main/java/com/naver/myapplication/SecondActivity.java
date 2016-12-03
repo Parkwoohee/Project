@@ -7,6 +7,10 @@ import java.util.Date;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -16,16 +20,36 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class SecondActivity extends Activity implements OnClickListener,
+public class SecondActivity extends AppCompatActivity implements OnClickListener,
         OnItemClickListener {
     ArrayList<String> mItems;
     ArrayAdapter<String> adapter;
     TextView textYear;
     TextView textMon;
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-
-    /** Called when the activity is first created. */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action1:
+                startActivity(new Intent(this, Detail.class));
+                return true;
+            case R.id.action2:
+                startActivity(new Intent(this, MFragment.class));
+                return true;
+            case R.id.action3:
+                startActivity(new Intent(this, WFragment.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

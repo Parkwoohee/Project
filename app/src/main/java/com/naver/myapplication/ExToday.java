@@ -28,32 +28,7 @@ public class ExToday extends AppCompatActivity implements OnItemClickListener,
     SimpleCursorAdapter adapter;
     ListView list;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.quick_action1:
-                Toast.makeText(getApplicationContext(), R.string.action_quick, Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.action_settings:
-                Toast.makeText(getApplicationContext(), R.string.action_settings, Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.action_subactivity:
-                startActivity(new Intent(this, MFragment.class));
-                return true;
-            case R.id.action_navdrawer:
-                startActivity(new Intent(this, WFragment.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     /** Called when the activity is first created. */
     @Override
