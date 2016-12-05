@@ -3,10 +3,12 @@ package com.naver.myapplication;
 
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -17,7 +19,7 @@ public class Detail extends Activity implements OnClickListener {
     int mId;
     String today;
     EditText editDate, editTitle, editTime, editEnd, editPlace, editMemo;
-
+    private static final int DATABASE_VERSION = 1;
 
     /** Called when the activity is first created. */
     @Override
@@ -72,8 +74,8 @@ public class Detail extends Activity implements OnClickListener {
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
-        SQLiteDatabase db = mDBHelper.getWritableDatabase();
-
+        final SQLiteDatabase db = mDBHelper.getWritableDatabase();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         switch (v.getId()) {
             case R.id.btnsave:
                 if (mId != -1) {
@@ -96,18 +98,41 @@ public class Detail extends Activity implements OnClickListener {
                 }
                 mDBHelper.close();
                 setResult(RESULT_OK);
+                finish();
                 break;
             case R.id.btndel:
+
                 if (mId != -1) {
-                    db.execSQL("DELETE FROM today WHERE _id='" + mId + "';");
-                    mDBHelper.close();
+
+                    mDBHelper = new MyDBHelper(this, "Today.db", null, 1);
+                    builder.setTitle("내용");
+                    builder.setMessage("삭제하시겠습니까?");
+                    builder.setPositiveButton("삭제", new AlertDialog.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            deleteView(db);
+
+                        }
+                    });
+                    builder.setNegativeButton("취소",null);
+                    builder.show();
+
                 }
+
                 setResult(RESULT_OK);
                 break;
+
             case R.id.btncancel:
                 setResult(RESULT_CANCELED);
+                finish();
                 break;
         }
+        // finish();
+    }
+
+    public void deleteView(SQLiteDatabase db) {
+        db.execSQL("DELETE FROM today WHERE _id='" + mId + "';");
+        mDBHelper.close();
         finish();
     }
 }

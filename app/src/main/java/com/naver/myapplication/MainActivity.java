@@ -6,25 +6,25 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-        import android.content.Intent;
-        import android.graphics.drawable.AnimationDrawable;
-        import android.graphics.drawable.Drawable;
-        import android.media.Image;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.util.DisplayMetrics;
-        import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.animation.AccelerateDecelerateInterpolator;
-        import android.view.animation.Animation;
-        import android.view.animation.AnimationUtils;
-        import android.widget.FrameLayout;
-        import android.widget.ImageView;
-import android.widget.Toast;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     final String TAG = "AnimationTest";
     FrameLayout mFrame;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView mFirework;
     ImageView mCountDown;
     int mScreenHeight;
+    MyDBHelper mDBHelper;
 
 
     @Override
@@ -39,9 +40,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         mFrame = (FrameLayout)findViewById(R.id.activity_main);
         mCountDown = (ImageView) findViewById(R.id.countdown);
+        mFirework = (ImageView) findViewById(R.id.fire);
+        mRocket = (ImageView) findViewById(R.id.rocket);
     }
+
 
 
     @Override
@@ -60,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
          * 아래 4가지 startRocket 애니메이션 중에 하나를 선택하여 테스트해 보세요.
          */
         startRocketTweenAnimation();
-//      startRocketObjectPropertyAnimation();
-//      startRocketPropertyAnimationByXML();
-//      startRocketValuePropertyAnimation();
+        // startRocketObjectPropertyAnimation();
+        //startRocketPropertyAnimationByXML();
+        // startRocketValuePropertyAnimation();
 
     }
 
