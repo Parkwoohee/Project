@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/countdown"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
         android:layout_gravity="center"
 
         />
@@ -21,17 +21,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/fireworks_01"
+        android:src="@drawable/hansung"
 
         />
 
     <ImageView
         android:id="@+id/rocket"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="73dp"
         android:layout_gravity="bottom|center_horizontal"
 
-        android:src="@drawable/fireworks_01"/>
+        android:src="@drawable/countdown"/>
 
 
 </FrameLayout>
