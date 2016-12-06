@@ -93,13 +93,13 @@ public class SecondActivity extends AppCompatActivity implements OnClickListener
     private void fillDate(int year, int mon) {
         mItems.clear();
 
-        mItems.add("Mon");
-        mItems.add("Tue");
-        mItems.add("Wen");
-        mItems.add("Thur");
-        mItems.add("Fri");
-        mItems.add("Sat");
-        mItems.add("Sun");
+        mItems.add("월");
+        mItems.add("화");
+        mItems.add("수");
+        mItems.add("목");
+        mItems.add("금");
+        mItems.add("토");
+        mItems.add("일");
 
         Date current = new Date(year - 1900, mon - 1, 1);
         int day = current.getDay(); // 요일도 int로 저장.
